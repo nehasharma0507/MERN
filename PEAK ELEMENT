@@ -1,105 +1,45 @@
-#include <math.h>
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <limits.h>
-#include <stdbool.h>
-
-int main()
- {
-    int findpeak(int arr[],int n);
-    int peakIndex=0;
-    int i,n,arr[i];
-       
-       for(i=1;i<n;i++)
-    {
-        if (arr[i] > arr[peakIndex]){
-            peakIndex=i;
-        }
-        return arr[peakIndex];
-    }
-}
-int main ()
+int sum (int a, int b);
+int subtract (int a, int b);
+int mul (int a, int b);
+int div (int a, int b);
+int (*fp [4]) (int a, int b);
+int main (void)
 {
-    int n;
-    scanf("%d",&n);
-    int arr[n];
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    int peak=findpeak(arr,n);
-    printf("%d\n",peak);
-    return 0;
+ int result;
+ int num1, num2, op;
+ fp [0] = sum;
+ fp [1] = subtract;
+ fp [2] = mul;
+ fp [3] = div;
+ printf("\n Enter the numbers: ");
+ scanf("%d %d", &num1, &num2);
+do
+printf("\n 0: Add \n 1: Subtract \n 2: Multiply \n 3: Divide \n 4. EXIT\n");
+printf("\n\n Enter r the operation: ");
+scanf("%d", &op);
+result (*fp [op]) (num1, num2);
+printf("\n Result = %d", result);
+} while (op!=4);
+return 0;
 }
-void rotateArray(int arr[], int n, int m) {
-    m = m % n;
-    int temp[m];
-    for (int i = 0; i < m; i++)
-        temp[i] = arr[i];
-    for (int i = m; i < n; i++)
-        arr[i - m] = arr[i];
-        for (int i = 0; i < m; i++)
-        arr[n - m + i] = temp[i];
-}
-int main() {
-    int n, m;
-     printf("%d",n);
-     scanf("%d", &n);
-     printf("%d",m);
-   
-    scanf("%d", &m);
-     int arr[n];
-   
-    for (int i = 0; i < n; i++)
-        scanf("%d", &arr[i]);
-    rotateArray(arr, n, m);
- 
-    for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-
-    return 0;
-}
-int cmpfunc(const void*a,const void*b)
+int sum (int a, int b)
 {
-    return((int)a-(int)b);
+return a + b;
 }
-int kthSmallest(int arr[], int N, int K)
+int subtract (int a, int b)
 {
-    qsort(arr,N,sizeof(int),cmpfunc);
-    return arr[K-1];
+return a - b;
 }
-int main()
+int mul (int a, int b)
 {
-    int arr[] = {1,3,5,6,5,6};
-    int N = sizeof(arr) / sizeof(arr[0]), K=2;
-    printf("%d",kthSmallest(arr,N,K));
-    return 0;
+return a* b;
 }
-int main() 
-{ 
-    int arr[] = {3,1,5,5,3}; 
-    int n=sizeof(arr)/sizeof(arr[0]); 
-    int num[n];
-    for(int i=0; i < n; i++)
-    {
-        if(num[i]==0)
-        {
-            int count = 1;
-            for(int j = i+1; j < n; j++) 
-            {
-                if(arr[i]==arr[j]) 
-                { 
-                    count++; 
-                    num[j] = 1; 
-                } 
-            } 
-            if(count>1)
-                printf("%d",arr[i]);
-                else
-                printf("no element found""%d\n",count);
-        }
-    }
-   return 0; 
+int div(int a, int b)
+{
+if (b)
+return a / b;
+else
+return 0;
 }
+      
