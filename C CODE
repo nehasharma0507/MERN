@@ -1,0 +1,139 @@
+#include<stdio.h>
+void func1(int n);
+
+
+int main( )
+{
+
+    int n;
+    printf("Enter how many lines u want to print ? ");
+    scanf("%d",&n);
+    printf("\n\n\n");
+        func1(n);
+        printf("\n");
+    
+        return 0;
+
+}
+
+void func1(int n)
+{
+        int i;
+        if(n==0)
+        return;
+        else
+       {
+           func1(n-1);
+           for(i=1; i<= n; i++)
+            printf("%d ",i);
+            printf("\n");
+        }
+}
+#include <stdio.h>
+
+int main()
+{
+     int i, n, sum = 0;  
+
+    printf("Input Value of terms : "); 
+    scanf("%d", &n); 
+
+    printf("\nThe first %d  numbers are:\n", n);  
+
+    for (i = 1; i <= n; i++) {  
+        printf("%d ", i);  
+        sum += i;  
+    }
+
+    printf("\nThe Sum of numbers  %d terms : %d \n", n, sum);  
+
+    return 0;
+}
+#include <stdio.h>
+
+int main()
+{
+    int num=4,num1=3,num2=2,sum;
+    printf("enter interger");
+    scanf("%d%d%d",&num,&num1,&num2);
+    sum=num+num1+num2;
+    printf("%d",sum);
+    
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdbool.h>
+
+int main()
+{
+    bool find_Prime(int num)
+
+{
+    static int i = 2; 
+
+    if (num == 0 || num == 1)
+
+    {
+       return false;
+
+    }
+
+    if (num == i)
+
+        return true; 
+
+    if (num % i == 0)
+
+    {
+
+        return false;
+
+    }
+
+    i++; 
+    return find_Prime(num);
+
+} 
+
+int main()
+
+{
+    int num = 20;
+
+    if (find_Prime(num))
+
+    {
+
+        printf("%d is a Prime number\n", num);
+
+    }
+
+    else
+
+    {
+
+        printf("%d is not a Prime number \n", num);
+
+    }
+      num = 2;
+
+    if (find_Prime(num))
+
+    {
+
+        printf("%d is a Prime number\n", num);
+
+    }
+
+    else
+
+    {
+
+        printf("%d is not a Prime number \n", num);
+
+    }
+
+    return 0;
+
+}
